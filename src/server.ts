@@ -1,29 +1,24 @@
-import { Express } from "express";
-import cors from "cors";
+import express from "express";
 import dotenv from "dotenv";
-import { Request, Response } from "express";
-import participantsRoutes from "./routes/participantsRoutes";
-
-
-
-
-const express = require('express');
-const server = express();
-const PORT = 3000;
+import cors from "cors";
+import participantsRouter from "./routes/participantsRoutes";
 
 dotenv.config();
 
+const server = express();
+const port = process.env.PORT || 3000;
 
 server.use(cors());
-server.use(express.urlencoded({extended: false}));
+server.use(express.urlencoded({ extended: false }));
 server.use(express.json());
 
-server.get('/',(req:Request,res:Response)=>{
-    res.send('Bem-vindo à minha API!');
+server.get("/", (req, res) => {
+    res.send("FUNCIONANDO GRACAS A DEUS PAIS RECEBA!");
 });
 
-server.listen(PORT,() =>{
-    console.log(`Servidor está ouvindo na porta ${PORT}`)
-});
+// Defina suas rotas aqui usando participantsRouter
+server.use("/participants", participantsRouter);
 
-server.use("/Participants", participantsRoutes);
+server.listen(port, () => {
+    console.log(`Servidor escutando na porta ${port}`);
+});
