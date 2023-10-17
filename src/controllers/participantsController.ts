@@ -1,6 +1,6 @@
 import { Response, Request, NextFunction } from "express";
 import participants from "../models/Participants";
-import { createDbConnection } from "../db/dbConfig";
+import createDbConnection from "../db/dbConfig";
 import { Database } from "sqlite3";
 import logger from "../services/logger";
 

@@ -1,6 +1,6 @@
 const sqlite3 = require("sqlite3").verbose();
 
-const filePath = "C:/Users/I590177/schoolEventsAgile2/Participants.db";
+const filePath = "../db/dbConfig";
 
 const createDbConnection = () => {
     let db = new sqlite3.Database(filePath, (error:any) => {
@@ -20,3 +20,6 @@ const createDbConnection = () => {
 };
 
 module.exports = { createDbConnection };
+
+
+export default createDbConnection
