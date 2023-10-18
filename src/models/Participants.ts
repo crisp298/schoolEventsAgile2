@@ -1,14 +1,8 @@
-class Participants{
-    id : number;
-    name : string;
-    type: string;
+class ListOfParticipants{
+    id?: number;
+    name: string = "";
+    surname: string = "";
     
-
-    constructor(id:number, name:string, type:string){
-        this.id = id;
-        this.name = name;
-        this.type = type;
-    }
 }
 
-export default Participants;
+export default ListOfParticipants;

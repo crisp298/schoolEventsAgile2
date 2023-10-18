@@ -1,40 +1,22 @@
-interface Event {
-    eventId: number;
-    eventLocation: string;
-    maxNumberOfparticipants: number;
-    hoursOfDuration:number;
-    typeOfEvent: string;
-    eventHost: new EventHost.id{};
-    participants: new ListOfParticipants{};
+import ListOfParticipants from "./Participants";
 
-    emitCertificate(participants: string)?
-}
+export class Event {
+    eventId?: number;
+    eventName: string = "";
+    eventLocation: string = "";
+    maxNumberOfparticipants: number = 0;
+    hoursOfDuration:number = 0;
+    typeOfEvent: string = "";//livre, acadêmico, celebração
+    eventHost:string[] = [];//usar class EventHost
+    guests: string[] = []; 
 
-class ListOfParticipants {
-    id: number;
-    name: string;
-    surname: string;
-    isParticipantRegistered: string;
-    isParticipantPresent: string;
-
-    constructor(id: number,
-                name: string,
-                surname: string,
-                isParticipantPresent: string,
-                isParticipantRegistered: string){
-                    this.id = id;
-                    this.name = name;
-                    this.surname = surname;
-                    this.isParticipantPresent = isParticipantPresent;
-                    this.isParticipantRegistered = isParticipantRegistered;
-                }
-
-    emitCertificate(isParticipantPresent: string, isParticipantRegistered: string){
-        if (isParticipantPresent == isParticipantRegistered){
-            console.log("Print certificate on link");
+    emitCertificate(typeOfEvent: string, guests:string[], hoursOfDuration: number, eventName: string){
+        if(typeOfEvent = "livre" || "acadêmico"){
+        forEach(guests.id =>
+            console.log `Certifico participação de ${hoursOfDuration} no evento ${typeOfEvent} ${eventName}`)
         } else {
-            console.log("registration not confirmed or absent participant - no certificate created");
+            console.log("este evento não gera certificado de participação");
         };
     }
 
-}
+};
